@@ -1,0 +1,68 @@
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(56, 189, 248, 0.15), transparent 60%),
+              radial-gradient(900px 500px at 80% 30%, rgba(99, 102, 241, 0.14), transparent 55%),
+              #0b1220;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px; /* a bit wider for flashcards + controls */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.emptyTitle {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.emptyText {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.primaryButton {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #07111f;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  box-shadow: 0 16px 26px rgba(99, 102, 241, 0.22);
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.12s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.primaryButton:active {
+  transform: translateY(0px);
+}
+.backButton {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+
+.backButton:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
