@@ -1,9 +1,11 @@
 const API_BASE = "http://127.0.0.1:8000";
 
-export async function generateQuestions({ file, questionType }) {
+export async function generateQuestions({ file, questionType, count = 5 }) {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("question_type", questionType);
+  formData.append("count", String(count));
+
 
   const res = await fetch(`${API_BASE}/generate-questions`, {
     method: "POST",

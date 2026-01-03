@@ -10,7 +10,7 @@
 
 .card {
   width: 100%;
-  max-width: 640px; /* a bit wider for flashcards + controls */
+  max-width: 640px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 18px;

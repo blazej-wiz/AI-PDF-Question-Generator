@@ -25,7 +25,12 @@ export default function FlashcardDeck({ cards, questionType = "mcq" }) {
         </div>
       </div>
 
-      <Flashcard card={current} questionType={questionType} />
+      <Flashcard
+  key={index}
+  card={current}
+  questionType={questionType}
+/>
+
 
       <div className={styles.controls}>
         <button className={styles.secondaryButton} onClick={prev} disabled={index === 0}>
