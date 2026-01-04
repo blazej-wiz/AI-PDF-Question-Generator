@@ -1,56 +1,73 @@
 # 📘 AI PDF Question Generator & Study App
 
-A full-stack web application that allows users to upload PDF lecture notes and automatically generate **AI-powered study questions** (MCQs or SAQs), then review them using an interactive **flashcard-based study interface**.
+A full-stack web application that lets users upload PDF lecture notes and automatically generate **AI-powered study questions**, then review them using a polished **flashcard-based study interface** with progress tracking and a saved library.
 
-This project demonstrates clean UI design, robust AI integration, and real-world handling of inconsistent LLM outputs.
+This project focuses on **real-world AI reliability**, clean UI/UX, and production-style backend architecture.
 
 ---
 
 ## 🧠 How It Works
 
 1. The user uploads a PDF document.
-2. The backend extracts text from the PDF.
-3. OpenAI generates study questions based on the extracted content.
-4. The backend normalizes the AI output into a stable, predictable schema.
-5. The frontend renders the questions as interactive flashcards.
-6. Users flip flashcards to reveal answers and explanations.
+2. The backend extracts and chunks the text.
+3. AI generates study questions based on the content.
+4. The backend normalizes inconsistent AI output into a stable schema.
+5. Questions are optionally saved to a **library** as a study deck.
+6. Users study using interactive flashcards with answer grading.
 
 ---
 
 ## ✨ Features
 
-- 📄 Upload PDF lecture notes  
-- 🧠 Generate AI-based questions from content  
-- 📝 Supports **MCQ** and **SAQ** formats  
-- 🔀 Randomized MCQ options (no “always A” bias)  
-- 🃏 Flashcard-style study mode  
-- 🔁 Flip cards to reveal answers and explanations  
-- ⏮️ Navigate between questions  
-- 🎨 Minimal SaaS-style UI  
-- 🛡️ Defensive backend handling for unpredictable AI output  
+### 📄 PDF → Questions
+- Upload PDF lecture notes
+- AI-generated questions from real document content
+- Supports **MCQ** and **SAQ** formats
+- Defensive normalization against unpredictable AI output
 
+### 🃏 Study Experience
+- Flashcard-style study mode
+- Smooth flip animation (question ↔ answer)
+- Explanations for MCQs
+- Keyboard & mouse friendly interactions
+- Scroll-safe layout for long questions
+
+### ✅ Progress & Grading
+- Mark answers as **Correct** or **Incorrect**
+- Progress recorded per card
+- Automatic advance through decks
+- Completion state when a deck is finished
+
+### 📚 Library
+- Save generated decks to a library
+- Revisit decks anytime
+- Study directly from saved decks
+- Delete decks when no longer needed
+
+### 🎨 UI / UX
+- Minimal, modern SaaS-style design
+- Subtle animations and transitions
+- Consistent typography and spacing
+- Designed for long study sessions
 
 ---
-
 
 ## 🎬 Demo
 
-Below is a short demo showing the full flow of the application — uploading a PDF, generating AI-powered questions, and studying them using interactive flashcards.
+Below is a short demo of the current version showing the full flow of the application 
 
-![AI PDF Question Generator Demo](demo/example1.gif)
+![AI PDF Question Generator Demo](demo/2DEMO.gif)
 
 ---
 
-## 🚀 Run Locally (Full Setup)
-
-Follow the steps below to run the project locally.
+## 🚀 Run Locally
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/blazej-wiz/AI-PDF-Question-Generator.git
 cd AI-PDF-Question-Generator
 
-# 2. Create and activate a virtual environment (backend)
+# 2. Create and activate virtual environment (backend)
 python -m venv .venv
 
 # macOS / Linux
@@ -69,27 +86,20 @@ export OPENAI_API_KEY=your_api_key_here
 # Windows (PowerShell)
 setx OPENAI_API_KEY "your_api_key_here"
 
-# (Restart terminal after setting the key on Windows)
+# Restart terminal after setting the key on Windows
 
 # 5. Start the backend
 uvicorn main:app --reload
 
-#Open new terminal for frontend
-
-# 6. Install frontend dependencies
+# 6. Start the frontend (new terminal)
 cd frontend
 npm install
-
-
-# 7. Start the frontend
 npm run dev
 ```
 
 ## 🔮 Future Improvements
 
-- Answer selection and scoring
-- Configurable number of generated questions
-- “Explain further” tutor-style AI follow-ups
-- Difficulty levels (easy / medium / hard)
-- Progress tracking per PDF or study session
-- User accounts and saved study history
+- PDF-level progress tracking
+- Non-overlapping decks per document
+- Study only incorrect answers
+- Users accounts
