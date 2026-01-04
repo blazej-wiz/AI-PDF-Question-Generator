@@ -42,8 +42,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-top: 2px;
+  margin-top: 16px; /* ✅ increase from 2px */
+  position: relative;
+  z-index: 2;
 }
+
 
 .secondaryButton {
   appearance: none;
@@ -71,4 +74,82 @@
 .secondaryButton:disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
+
+.gradeRow {
+  display: flex;
+  gap: 12px;
+}
+
+.goodButton,
+.badButton {
+  appearance: none;
+  width: 120px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.12s ease,
+    background 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.18s ease,
+    filter 0.12s ease;
+}
+
+/* ✅ Correct — cool blue glow */
+.goodButton {
+  border-color: rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.10);
+  box-shadow:
+    0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* ❌ Incorrect — soft purple glow */
+.badButton {
+  border-color: rgba(168, 85, 247, 0.45);
+  background: rgba(168, 85, 247, 0.10);
+  box-shadow:
+    0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* Hover: subtle bloom, not neon */
+.goodButton:hover {
+  transform: translateY(-1px);
+  background: rgba(96, 165, 250, 0.16);
+  box-shadow:
+    0 8px 22px rgba(96, 165, 250, 0.25);
+}
+
+.badButton:hover {
+  transform: translateY(-1px);
+  background: rgba(168, 85, 247, 0.16);
+  box-shadow:
+    0 8px 22px rgba(168, 85, 247, 0.25);
+}
+
+.goodButton:active,
+.badButton:active {
+  transform: translateY(0px);
+  filter: brightness(0.96);
+}
+
+.goodButton:disabled,
+.badButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
+.controls {
+  position: relative;
+  z-index: 2;
 }

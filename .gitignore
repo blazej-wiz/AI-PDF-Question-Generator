@@ -16,3 +16,4 @@ dist-ssr/
 .DS_Store
 .idea/
 .vscode/
+app.db

@@ -1,4 +1,7 @@
 .card {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   border-radius: 18px;
   padding: 18px;
@@ -13,10 +16,8 @@
   gap: 12px;
 
   transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
-  max-height: 520px;
-  overflow: hidden;
-
 }
+
 
 .question,
 .answer,
@@ -36,8 +37,11 @@
 .content {
   display: grid;
   gap: 10px;
-  padding: 6px 6px 64px 6px;
+  padding: 6px;
+  padding-bottom: 44px;
   overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -78,6 +82,12 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+
+.noAnim {
+  transition: none !important;
+}
+
+
 .choiceKey {
   width: 26px;
   height: 26px;
@@ -101,9 +111,6 @@
   overflow: hidden;
 }
 
-.scene {
-  perspective: 1200px;
-}
 
 .inner {
   position: relative;
@@ -113,6 +120,16 @@
   transition: transform 0.6s ease;
 }
 
+
+
+.scene {
+  width: 100%;
+  perspective: 1200px;
+  margin-bottom: 10px;
+}
+
+
+
 .innerFlipped {
   transform: rotateY(180deg);
 }
@@ -121,13 +138,19 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* ✅ important */
 }
+
 
 .back {
   transform: rotateY(180deg);
 }
 
 
+
+.front {
+  transform: rotateY(0deg);
+}
 
 
 .answer {
@@ -166,4 +189,14 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Hide scrollbar but keep scrolling */
+.content {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* old Edge/IE */
+}
 
+.content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;              /* Chrome/Safari */
+}
